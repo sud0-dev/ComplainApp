@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Complaints</string>
+
+    <string name="branch_name">Choose your Branch</string>
+    <string name="name">Name</string>
+    <string name="year">Year</string>
+    <string name="complaints">Complaints</string>
+    <string name="hostel">Hostel</string>
+    <string name="describe">Describe your issue</string>
+
+    <string-array name="year">
+        <item>Select Year</item>
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>IV</item>
+    </string-array>
+
+    <string-array name="branch_name">
+        <item>Select branch</item>
+        <item>IT</item>
+        <item>CSE</item>
+        <item>Mechanical</item>
+        <item>Electrical</item>
+        <item>Electronics</item>
+        <item>Civil</item>
+    </string-array>
+
+    <string-array name="hostel">
+        <item>Select Hostel</item>
+        <item>A Block</item>
+        <item>B Block</item>
+        <item>C Block</item>
+        <item>D Block</item>
+    </string-array>
+
+    <string-array name="complaints">
+        <item>Water</item>
+        <item>Room</item>
+        <item>Food</item>
+        <item>Cleaning</item>
+        <item>Electrical</item>
+    </string-array>
+
+</resources>
