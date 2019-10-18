@@ -10,7 +10,7 @@ import androidx.fragment.app.DialogFragment;
 //import android.support.v7.app.AlertDialog;
 import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
-import android.util.Log;
+//import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +63,7 @@ public class Dialog extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        final EditText editText = view.findViewById(R.id.inEmail);
+        final EditText editText = view.findViewById(R.id.describe);
 
         if (getArguments() != null && !TextUtils.isEmpty(getArguments().getString("email")))
             editText.setText(getArguments().getString("email"));
@@ -83,22 +83,21 @@ public class Dialog extends DialogFragment {
     @Override
     public void onResume() {
         super.onResume();
-
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.d("API123", "onCreate");
-
-        boolean setFullScreen = false;
-        if (getArguments() != null) {
-            setFullScreen = getArguments().getBoolean("fullScreen");
-        }
-
-        if (setFullScreen)
-            setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+//        Log.d("API123", "onCreate");
+//
+//        boolean setFullScreen = false;
+//        if (getArguments() != null) {
+//            setFullScreen = getArguments().getBoolean("fullScreen");
+//        }
+//
+//        if (setFullScreen)
+//            setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
     }
 
     @Override
@@ -109,6 +108,4 @@ public class Dialog extends DialogFragment {
     public interface DialogListener {
         void onFinishEditDialog(String inputText);
     }
-
-
 }

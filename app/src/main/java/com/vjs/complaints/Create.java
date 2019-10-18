@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 //import android.support.v4.app.Fragment;
 //import android.support.v4.app.FragmentManager;
 //
@@ -24,6 +25,7 @@ public class Create extends AppCompatActivity implements Dialog.DialogListener {
     EditText name, complain;
     Button submit, describe;
     Spinner branch, year, hostel, complainType;
+    account acc = new account(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,7 @@ public class Create extends AppCompatActivity implements Dialog.DialogListener {
         hostel = findViewById(R.id.hostel);
         complainType = findViewById(R.id.complainttype);
         complain = findViewById(R.id.complain);
-        final account acc = new account(this);
+        //final account acc = new account(this);
 
         describe = findViewById(R.id.describe);
         describe.setOnClickListener(new View.OnClickListener() {
@@ -69,11 +71,12 @@ public class Create extends AppCompatActivity implements Dialog.DialogListener {
                 acc.hostel = hostel.getSelectedItem().toString();
                 acc.type = complainType.getSelectedItem().toString();
                 acc.year = year.getSelectedItem().toString();
-                acc.complain = complain.getText().toString();
+                //acc.complain = complain.getText().toString();
                 acc.write();
                 Intent myIntent = new Intent(Create.this, MainActivity.class);
                 Create.this.startActivity(myIntent);
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+                Toast.makeText(getApplicationContext(), "Complain Submitted", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -81,10 +84,11 @@ public class Create extends AppCompatActivity implements Dialog.DialogListener {
     @Override
     public void onFinishEditDialog(String inputText) {
 
+        //acc.complain = inputText;
         if (TextUtils.isEmpty(inputText)) {
-            complain.setText("No Complains");
+            acc.complain = "No Complains" ;
         } else
-            complain.setText(inputText);
+            acc.complain = inputText;
     }
 
 }

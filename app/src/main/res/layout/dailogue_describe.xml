@@ -11,10 +11,10 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,14 +30,14 @@
 
 
         <EditText
-            android:id="@+id/inEmail"
+            android:id="@+id/describe"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="@null"
+            android:layout_margin="10dp"
+            android:background="@drawable/borders"
             android:gravity="center"
             android:hint="Enter here"
-            android:layout_margin="10dp"
-            android:inputType="textEmailAddress" />
+            android:inputType="textMultiLine" />
 
         <Button
             android:id="@+id/btnDone"

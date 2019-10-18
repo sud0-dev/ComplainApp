@@ -9,7 +9,6 @@
     <string name="describe">Describe your issue</string>
 
     <string-array name="year">
-        <item>Select Year</item>
         <item>I</item>
         <item>II</item>
         <item>III</item>
@@ -17,7 +16,6 @@
     </string-array>
 
     <string-array name="branch_name">
-        <item>Select branch</item>
         <item>IT</item>
         <item>CSE</item>
         <item>Mechanical</item>
@@ -27,7 +25,6 @@
     </string-array>
 
     <string-array name="hostel">
-        <item>Select Hostel</item>
         <item>A Block</item>
         <item>B Block</item>
         <item>C Block</item>
