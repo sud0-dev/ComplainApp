@@ -22,9 +22,10 @@
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             app:srcCompat="@drawable/logo" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -60,13 +61,6 @@
             android:layout_height="60dp"
             android:layout_margin="10dp"
             android:text="Complaint Statistics" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/material_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/button_label_enabled"/>
 
     </LinearLayout>
 

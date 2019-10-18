@@ -27,7 +27,10 @@
             android:layout_margin="10dp"
             android:background="@null"
             android:gravity="center"
+            android:autofillHints=""
             android:hint="@string/name"
+            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTintMode="add"
             android:inputType="text" />
 
         <Spinner
@@ -75,16 +78,23 @@
             android:spinnerMode="dialog"
             android:textAlignment="center" />
 
+        <Button
+            android:id="@+id/describe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Not Found your problem ?" />
+
         <EditText
             android:id="@+id/complain"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:layout_margin="10dp"
             android:background="@null"
             android:ems="10"
             android:gravity="center"
-            android:inputType="textPersonName"
-            android:text="@string/describe" />
+            android:hint="@string/describe"
+            android:inputType="textPersonName" />
 
     </LinearLayout>
 

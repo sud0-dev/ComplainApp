@@ -6,7 +6,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class account {
 
-    String name, type, branch, year, hostel, complaint;
+    String name, type, branch, year, hostel, complain;
 
     //public static SharedPreferences sharedPreferences;
     //private SharedPreferences mPreferences;
@@ -14,7 +14,7 @@ public class account {
     //private String sharedPrefFile = "com.vjs.complaints";
 
     public account(Context context){
-        this.mContext=context;
+        this.mContext = context;
     }
 
     public void write () {
@@ -25,9 +25,9 @@ public class account {
         SharedPreferences.Editor preferencesEditor = mPreferences.edit();
         preferencesEditor.putString("name", name);
         preferencesEditor.putString("year", year);
-        preferencesEditor.putString("type", type);
+        preferencesEditor.putString("branch", branch);
         preferencesEditor.putString("hostel", hostel);
-        preferencesEditor.putString("complaint", complaint);
+        preferencesEditor.putString("complain", complain);
         //preferencesEditor.apply();
         preferencesEditor.commit();
 
