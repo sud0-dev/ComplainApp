@@ -11,9 +11,7 @@ import android.widget.TextView;
 
 public class LoadComplaints extends AppCompatActivity {
 
-    TextView dname,dyear, dbranch, dhostel, dcomplain, dtype;
-    //SharedPreferences sharedPreferences ;
-    //SharedPreferences.Editor editor = sharedPreferences.edit();
+    TextView dname, dyear, dbranch, dhostel, dcomplain, dtype;
     account acc = new account(this);
 
     @Override
@@ -42,7 +40,6 @@ public class LoadComplaints extends AppCompatActivity {
         dhostel.setText(acc.hostel);
         dtype.setText(acc.type);
         dcomplain.setText(acc.complain);
-
 
 
     }

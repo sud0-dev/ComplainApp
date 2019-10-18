@@ -1,16 +1,13 @@
 package com.vjs.complaints;
 
-//import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-//import android.support.v7.app.AlertDialog;
 import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
-//import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,7 +85,6 @@ public class Dialog extends DialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 //        Log.d("API123", "onCreate");
 //
 //        boolean setFullScreen = false;
