@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class Create extends AppCompatActivity implements Dialog.DialogListener {
 
-    EditText name, complain;
+    EditText name;
     Button submit, describe;
     Spinner branch, year, hostel, complainType;
     account acc = new account(this);
@@ -31,7 +31,6 @@ public class Create extends AppCompatActivity implements Dialog.DialogListener {
         year = findViewById(R.id.year);
         hostel = findViewById(R.id.hostel);
         complainType = findViewById(R.id.complainttype);
-        complain = findViewById(R.id.complain);
 
         describe = findViewById(R.id.describe);
         describe.setOnClickListener(new View.OnClickListener() {
