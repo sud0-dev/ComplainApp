@@ -1,53 +1,47 @@
 package com.vjs.complaints;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.widget.ImageView;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button create, load;
-    ImageView img;
+    Button login;
+    EditText username, password;
+    TextView text;
+    String user, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        create = findViewById(R.id.create);
-        create.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
+        text = findViewById(R.id.text);
 
-                Intent myIntent = new Intent(MainActivity.this, Create.class);
-                MainActivity.this.startActivity(myIntent);
-                SharedPreferences preferences = getSharedPreferences("com.vjs.complaints", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.clear();
-                editor.apply();
-            }
-        });
-
-        img = findViewById(R.id.logo);
-        img.setOnClickListener(new View.OnClickListener() {
+        login = findViewById(R.id.login);
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(MainActivity.this, webpage.class);
-                MainActivity.this.startActivity(myIntent);
+
+                user = username.getText().toString();
+                pass = password.getText().toString();
+
+                if (user.equals("admin") && pass.equals("admin")) {
+                    Intent myIntent = new Intent(MainActivity.this, StudentPage.class);
+                    MainActivity.this.startActivity(myIntent);
+                }
+
+                else
+                    text.setText("Wrong Username or Password !");
             }
         });
 
-        load = findViewById(R.id.load);
-        load.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(MainActivity.this, LoadComplaints.class);
-                MainActivity.this.startActivity(myIntent);
-            }
-        });
     }
 }

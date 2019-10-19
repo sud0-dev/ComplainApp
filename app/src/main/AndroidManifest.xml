@@ -9,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name="com.vjs.complaints.webpage"></activity>
-        <activity android:name="com.vjs.complaints.LoadComplaints" />
-        <activity android:name="com.vjs.complaints.Create" />
-        <activity android:name="com.vjs.complaints.MainActivity">
+        <activity android:name=".StudentPage" />
+        <activity android:name=".webpage" />
+        <activity android:name=".LoadComplaints" />
+        <activity android:name=".Create" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -59,7 +59,7 @@ public class Create extends AppCompatActivity implements Dialog.DialogListener {
                 acc.type = complainType.getSelectedItem().toString();
                 acc.year = year.getSelectedItem().toString();
                 acc.write();
-                Intent myIntent = new Intent(Create.this, MainActivity.class);
+                Intent myIntent = new Intent(Create.this, StudentPage.class);
                 Create.this.startActivity(myIntent);
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
                 Toast.makeText(getApplicationContext(), "Complain Submitted", Toast.LENGTH_LONG).show();
