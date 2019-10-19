@@ -79,6 +79,15 @@
             android:textAlignment="center" />
 
         <Button
+            android:id="@+id/complain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Complain"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:layout_margin="10dp" />
+
+        <Button
             android:id="@+id/describe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

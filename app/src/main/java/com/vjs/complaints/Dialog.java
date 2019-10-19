@@ -20,7 +20,6 @@ public class Dialog extends DialogFragment {
     @Override
     public android.app.Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
 
-
         if (getArguments() != null) {
             if (getArguments().getBoolean("notAlertDialog")) {
                 return super.onCreateDialog(savedInstanceState);
