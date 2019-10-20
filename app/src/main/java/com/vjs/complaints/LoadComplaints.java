@@ -31,11 +31,12 @@ public class LoadComplaints extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("com.vjs.complaints", Context.MODE_PRIVATE);
 
-        Toast.makeText(getApplicationContext(), dbHandler.loadHandler(), Toast.LENGTH_LONG);
+        Toast.makeText(getApplicationContext(), dbHandler.loadHandler(), Toast.LENGTH_LONG).show();
         result.setText(dbHandler.loadHandler());
 
         acc.name = sharedPreferences.getString("name", "default value");
         acc.year = sharedPreferences.getString("year", "default value");
+        acc.type = sharedPreferences.getString("type", "default value");
         acc.branch = sharedPreferences.getString("branch", "default value");
         acc.hostel = sharedPreferences.getString("hostel", "default value");
         acc.complain = sharedPreferences.getString("complain", "default value");

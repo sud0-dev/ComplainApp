@@ -7,12 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.widget.ImageView;
 
 public class StudentPage extends AppCompatActivity {
 
     Button create, load;
-    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +27,6 @@ public class StudentPage extends AppCompatActivity {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.clear();
                 editor.apply();
-            }
-        });
-
-        img = findViewById(R.id.logo);
-        img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(StudentPage.this, webpage.class);
-                StudentPage.this.startActivity(myIntent);
             }
         });
 

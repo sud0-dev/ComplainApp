@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     EditText username, password;
     TextView text;
     String user, pass;
+    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         text = findViewById(R.id.text);
+        img = findViewById(R.id.logo);
 
         login = findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {
@@ -34,12 +37,26 @@ public class MainActivity extends AppCompatActivity {
                 pass = password.getText().toString();
 
                 if (user.equals("admin") && pass.equals("admin")) {
+                    Intent myIntent = new Intent(MainActivity.this, AdminPage.class);
+                    MainActivity.this.startActivity(myIntent);
+                }
+
+                else if (user.equals("student") && pass.equals("student")) {
                     Intent myIntent = new Intent(MainActivity.this, StudentPage.class);
                     MainActivity.this.startActivity(myIntent);
                 }
 
                 else
-                    text.setText("Wrong Username or Password !");
+                    text.setText("Wrong Username or Password");
+            }
+        });
+
+        img = findViewById(R.id.logo);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MainActivity.this, webpage.class);
+                MainActivity.this.startActivity(myIntent);
             }
         });
 

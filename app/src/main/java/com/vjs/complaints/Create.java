@@ -60,7 +60,7 @@ public class Create extends AppCompatActivity implements Dialog.DialogListener {
                 acc.type = complainType.getSelectedItem().toString();
                 acc.year = year.getSelectedItem().toString();
                 acc.write();
-                dbHandler.addHandler(acc);
+                //dbHandler.addHandler(acc);
                 Intent myIntent = new Intent(Create.this, StudentPage.class);
                 Create.this.startActivity(myIntent);
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
@@ -71,7 +71,6 @@ public class Create extends AppCompatActivity implements Dialog.DialogListener {
 
     @Override
     public void onFinishEditDialog(String inputText) {
-
         if (TextUtils.isEmpty(inputText)) {
             acc.complain = "No Complains";
         } else

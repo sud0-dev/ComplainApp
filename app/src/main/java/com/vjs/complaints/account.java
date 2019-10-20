@@ -21,6 +21,7 @@ public class account {
         mPreferences = mContext.getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         SharedPreferences.Editor preferencesEditor = mPreferences.edit();
         preferencesEditor.putString("name", name);
+        preferencesEditor.putString("type", type);
         preferencesEditor.putString("year", year);
         preferencesEditor.putString("branch", branch);
         preferencesEditor.putString("hostel", hostel);
