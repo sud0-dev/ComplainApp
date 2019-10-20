@@ -18,6 +18,7 @@ public class Create extends AppCompatActivity implements Dialog.DialogListener {
     Button submit, describe;
     Spinner branch, year, hostel, complainType;
     account acc = new account(this);
+    MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,7 @@ public class Create extends AppCompatActivity implements Dialog.DialogListener {
                 acc.type = complainType.getSelectedItem().toString();
                 acc.year = year.getSelectedItem().toString();
                 acc.write();
+                dbHandler.addHandler(acc);
                 Intent myIntent = new Intent(Create.this, StudentPage.class);
                 Create.this.startActivity(myIntent);
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out);

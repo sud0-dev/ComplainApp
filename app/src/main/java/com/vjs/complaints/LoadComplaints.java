@@ -8,11 +8,13 @@ import android.content.SharedPreferences;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoadComplaints extends AppCompatActivity {
 
-    TextView dname, dyear, dbranch, dhostel, dcomplain, dtype;
+    TextView dname, dyear, dbranch, dhostel, dcomplain, dtype, result;
     account acc = new account(this);
+    MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +27,12 @@ public class LoadComplaints extends AppCompatActivity {
         dcomplain = findViewById(R.id.dcomplain);
         dtype = findViewById(R.id.type);
         dyear = findViewById(R.id.dyear);
+        result = findViewById(R.id.result);
 
         SharedPreferences sharedPreferences = getSharedPreferences("com.vjs.complaints", Context.MODE_PRIVATE);
+
+        Toast.makeText(getApplicationContext(), dbHandler.loadHandler(), Toast.LENGTH_LONG);
+        result.setText(dbHandler.loadHandler());
 
         acc.name = sharedPreferences.getString("name", "default value");
         acc.year = sharedPreferences.getString("year", "default value");
@@ -40,7 +46,5 @@ public class LoadComplaints extends AppCompatActivity {
         dhostel.setText(acc.hostel);
         dtype.setText(acc.type);
         dcomplain.setText(acc.complain);
-
-
     }
 }
