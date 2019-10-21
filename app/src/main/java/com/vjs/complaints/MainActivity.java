@@ -1,14 +1,22 @@
 package com.vjs.complaints;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +30,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        int Permission_All = 1;
+
+        String[] Permissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.INTERNET, };
+
+        if(!hasPermissions(this, Permissions)){
+            ActivityCompat.requestPermissions(this, Permissions, Permission_All);
+        }
+
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
@@ -61,4 +78,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    public boolean hasPermissions(Context context, String... permissions){
+
+        if(context!=null && permissions!=null){
+            for(String permission: permissions){
+                if(ActivityCompat.checkSelfPermission(context, permission)!=PackageManager.PERMISSION_GRANTED){
+                    Toast.makeText(getApplicationContext(),"Permission DENIED", Toast.LENGTH_LONG).show();
+                    return  false;
+                }
+            }
+        }
+        return true;
+    }
+
 }

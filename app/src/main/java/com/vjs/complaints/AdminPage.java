@@ -30,6 +30,7 @@ public class AdminPage extends AppCompatActivity {
 
         acc.name = sharedPreferences.getString("name", "default value");
         acc.year = sharedPreferences.getString("year", "default value");
+        acc.type = sharedPreferences.getString("type", "default value");
         acc.branch = sharedPreferences.getString("branch", "default value");
         acc.hostel = sharedPreferences.getString("hostel", "default value");
         acc.complain = sharedPreferences.getString("complain", "default value");
