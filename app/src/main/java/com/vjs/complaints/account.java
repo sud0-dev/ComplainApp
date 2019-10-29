@@ -26,8 +26,8 @@ public class account {
         preferencesEditor.putString("branch", branch);
         preferencesEditor.putString("hostel", hostel);
         preferencesEditor.putString("complain", complain);
-        //preferencesEditor.apply();
-        preferencesEditor.commit();
+        preferencesEditor.apply();
+        //preferencesEditor.commit();
 
     }
 

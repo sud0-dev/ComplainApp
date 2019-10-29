@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+
 public class Create extends AppCompatActivity implements Dialog.DialogListener {
 
     EditText name;
@@ -61,6 +62,7 @@ public class Create extends AppCompatActivity implements Dialog.DialogListener {
                 acc.year = year.getSelectedItem().toString();
                 acc.write();
                 //dbHandler.addHandler(acc);
+                finish();
                 Intent myIntent = new Intent(Create.this, StudentPage.class);
                 Create.this.startActivity(myIntent);
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
@@ -76,5 +78,4 @@ public class Create extends AppCompatActivity implements Dialog.DialogListener {
         } else
             acc.complain = inputText;
     }
-
 }

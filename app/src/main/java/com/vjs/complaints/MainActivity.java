@@ -3,11 +3,14 @@ package com.vjs.complaints;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,13 +44,39 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, Permissions, Permission_All);
         }
 
+        login = findViewById(R.id.login);
+        login.setEnabled(false);
+        login.setBackgroundTintList((ContextCompat.getColorStateList(MainActivity.this, R.color.disabled)));
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         text = findViewById(R.id.text);
         img = findViewById(R.id.logo);
 
-        login = findViewById(R.id.login);
+        password.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                login.setEnabled(false);
+                login.setBackgroundTintList((ContextCompat.getColorStateList(MainActivity.this, R.color.disabled)));
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                login.setBackgroundTintList((ContextCompat.getColorStateList(MainActivity.this, R.color.button)));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(! password.getText().toString().isEmpty())
+                    login.setEnabled(true);
+                else {
+                    login.setEnabled(false);
+                    login.setBackgroundTintList((ContextCompat.getColorStateList(MainActivity.this, R.color.disabled)));
+                }
+            }
+        });
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,15 +87,18 @@ public class MainActivity extends AppCompatActivity {
                 if (user.equals("admin") && pass.equals("admin")) {
                     Intent myIntent = new Intent(MainActivity.this, AdminPage.class);
                     MainActivity.this.startActivity(myIntent);
-                }
-
-                else if (user.equals("student") && pass.equals("student")) {
+                    finish();
+                } else if (user.equals("student") && pass.equals("student")) {
                     Intent myIntent = new Intent(MainActivity.this, StudentPage.class);
                     MainActivity.this.startActivity(myIntent);
+                    finish();
+                } else {
+                    ErrorDialog dialogFragment = new ErrorDialog();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("TEXT", user);
+                    dialogFragment.setArguments(bundle);
+                    dialogFragment.show(getSupportFragmentManager(), "Image Dialog");
                 }
-
-                else
-                    text.setText("Wrong Username or Password");
             }
         });
 
@@ -101,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean hasPermissions(Context context, String... permissions){
-
         if(context!=null && permissions!=null){
             for(String permission: permissions){
                 if(ActivityCompat.checkSelfPermission(context, permission)!=PackageManager.PERMISSION_GRANTED){
@@ -114,9 +145,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void restartApp () {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
-        finish();
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        MainActivity.this.startActivity(myIntent);
     }
-
 }

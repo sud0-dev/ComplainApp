@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import java.util.Objects;
 
 public class Dialog extends DialogFragment {
 
@@ -25,7 +26,7 @@ public class Dialog extends DialogFragment {
                 return super.onCreateDialog(savedInstanceState);
             }
         }
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
         builder.setTitle("Alert Dialog");
         builder.setMessage("Alert Dialog inside DialogFragment");
 
@@ -70,6 +71,7 @@ public class Dialog extends DialogFragment {
             public void onClick(View view) {
 
                 DialogListener dialogListener = (DialogListener) getActivity();
+                assert dialogListener != null;
                 dialogListener.onFinishEditDialog(editText.getText().toString());
                 dismiss();
             }

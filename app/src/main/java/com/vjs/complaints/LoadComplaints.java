@@ -2,6 +2,7 @@ package com.vjs.complaints;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 //import static android.content.Context.MODE_PRIVATE;
@@ -16,6 +17,7 @@ public class LoadComplaints extends AppCompatActivity {
     account acc = new account(this);
     MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
 
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

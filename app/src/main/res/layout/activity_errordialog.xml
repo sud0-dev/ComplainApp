@@ -5,9 +5,9 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/see_complain"
+        android:id="@+id/error"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
 </RelativeLayout>

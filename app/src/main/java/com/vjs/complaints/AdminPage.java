@@ -53,7 +53,7 @@ public class AdminPage extends AppCompatActivity {
     }
 
     public void openDialog() {
-        ComplainDailog dialogFragment = new ComplainDailog();
+        ComplainDialog dialogFragment = new ComplainDialog();
         Bundle bundle = new Bundle();
         bundle.putString("TEXT",com);
         dialogFragment.setArguments(bundle);
