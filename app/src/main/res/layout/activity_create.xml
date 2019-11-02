@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Create">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -82,17 +81,21 @@
             android:id="@+id/complain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Complain"
-            android:background="@color/white"
-            android:textColor="@color/black"
-            android:layout_margin="10dp" />
+            android:text="@string/complain"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            style="Widget.AppCompat.Button.Colored"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/describe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Not Found your problem ?" />
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/not_found_your_problem" />
 
     </LinearLayout>
 
@@ -100,20 +103,17 @@
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:layout_marginTop="40dp"
-        android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.013">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Submit" />
+            android:text="@string/submit" />
     </LinearLayout>
 
 

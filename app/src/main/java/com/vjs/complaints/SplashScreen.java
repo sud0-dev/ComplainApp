@@ -18,7 +18,7 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splashscreen);
 
         animationView = findViewById(R.id.animation);
-        animationView.setRepeatCount(0);
+        animationView.setRepeatCount(2);
         animationView.playAnimation();
 
         if (! animationView.isAnimating()) {

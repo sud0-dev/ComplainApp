@@ -42,5 +42,4 @@ public class ComplainDialog extends AppCompatDialogFragment {
                 });
         return builder.create();
     }
-
 }

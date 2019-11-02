@@ -1,14 +1,11 @@
 package com.vjs.complaints;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -17,14 +14,21 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
     Button login, theme;
     EditText username, password;
-    TextView text;
+    TextView text, Link;
     String user, pass;
-    ImageView img;
+    private boolean backPressToExit = false;
+    String exit_msg = "Press back again to exit";
     int Permission_All = 1;
     int CHECK_NIGHT_MODE = 1;
 
@@ -51,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         text = findViewById(R.id.text);
-        img = findViewById(R.id.logo);
 
         password.addTextChangedListener(new TextWatcher() {
 
@@ -77,6 +80,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button student = findViewById(R.id.student);
+        student.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MainActivity.this, StudentsPage.class);
+                MainActivity.this.startActivity(myIntent);
+            }
+        });
+
+        Button admin = findViewById(R.id.admin);
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MainActivity.this, AdminPage.class);
+                MainActivity.this.startActivity(myIntent);
+            }
+        });
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                     MainActivity.this.startActivity(myIntent);
                     finish();
                 } else if (user.equals("student") && pass.equals("student")) {
-                    Intent myIntent = new Intent(MainActivity.this, StudentPage.class);
+                    Intent myIntent = new Intent(MainActivity.this, StudentsPage.class);
                     MainActivity.this.startActivity(myIntent);
                     finish();
                 } else {
@@ -102,8 +123,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        img = findViewById(R.id.logo);
-        img.setOnClickListener(new View.OnClickListener() {
+        Link = findViewById(R.id.site);
+        Link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(MainActivity.this, webpage.class);
@@ -129,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     public boolean hasPermissions(Context context, String... permissions){
@@ -148,4 +168,22 @@ public class MainActivity extends AppCompatActivity {
         Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
         MainActivity.this.startActivity(myIntent);
     }
+
+    @Override
+    public void onBackPressed() {
+        if (backPressToExit) {
+            super.onBackPressed();
+            return;
+        }
+        this.backPressToExit = true;
+        Snackbar.make(findViewById(R.id.main_l), exit_msg, Snackbar.LENGTH_LONG).show();
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                backPressToExit = false;
+            }
+        }, 2000);
+    }
+
 }

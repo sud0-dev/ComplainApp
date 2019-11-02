@@ -17,7 +17,12 @@
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ErrorDialog"></activity>
+        <activity
+            android:name=".StudentsPage"
+            android:label="@string/title_activity_students_page" >
+        </activity>
+        <activity android:name=".ErrorDialog" />
+        <activity android:name=".NewComplain" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,12 +30,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ComplainDailog" />
+        <activity android:name=".ComplainDialog" />
         <activity android:name=".AdminPage" />
         <activity android:name=".StudentPage" />
         <activity android:name=".webpage" />
         <activity android:name=".LoadComplaints" />
-        <activity android:name=".Create" />
         <activity android:name=".MainActivity" />
     </application>
 

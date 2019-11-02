@@ -7,6 +7,10 @@
     <string name="complaints">Complaints</string>
     <string name="hostel">Hostel</string>
     <string name="describe">Describe your issue</string>
+    <string name="load">Please wait</string>
+    <string name="forgot">Forgot Password ?</string>
+    <string name="Symbiosis">Symbiosis</string>
+    <string name="complain">Complain</string>
 
     <string-array name="year">
         <item>I</item>
@@ -38,5 +42,15 @@
         <item>Cleaning</item>
         <item>Electrical</item>
     </string-array>
+
+    <string name="title_activity_students_page">StudentsPage</string>
+    <string name="tab_text_1">NEW</string>
+    <string name="tab_text_2">LOAD</string>
+    <string name="tab_text_3">STATUS</string>
+    <string name="not_found_your_problem">Not Found your problem ?</string>
+    <string name="submit">Submit</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 
 </resources>

@@ -3,6 +3,8 @@ package com.vjs.complaints;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,7 +15,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
-public class Create extends AppCompatActivity implements Dialog.DialogListener {
+@SuppressLint("Registered")
+public class NewComplain extends AppCompatActivity implements Dialog.DialogListener {
 
     EditText name;
     Button submit, describe;
@@ -63,8 +66,8 @@ public class Create extends AppCompatActivity implements Dialog.DialogListener {
                 acc.write();
                 //dbHandler.addHandler(acc);
                 finish();
-                Intent myIntent = new Intent(Create.this, StudentPage.class);
-                Create.this.startActivity(myIntent);
+                Intent myIntent = new Intent(NewComplain.this, StudentsPage.class);
+                NewComplain.this.startActivity(myIntent);
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
                 Toast.makeText(getApplicationContext(), "Complain Submitted", Toast.LENGTH_LONG).show();
             }

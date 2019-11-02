@@ -12,7 +12,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class StudentPage extends AppCompatActivity {
 
-    Button create, load;
+    Button create, load, tab;
     private boolean backPressToExit = false;
     String exit_msg = "Press back again to exit";
 
@@ -21,18 +21,18 @@ public class StudentPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_studentpage);
 
-        create = findViewById(R.id.create);
-        create.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent myIntent = new Intent(StudentPage.this, Create.class);
-                StudentPage.this.startActivity(myIntent);
-                SharedPreferences preferences = getSharedPreferences("com.vjs.complaints", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.clear();
-                editor.apply();
-                //finish();
-            }
-        });
+//        create = findViewById(R.id.create);
+//        create.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                Intent myIntent = new Intent(StudentPage.this, Create.class);
+//                StudentPage.this.startActivity(myIntent);
+//                SharedPreferences preferences = getSharedPreferences("com.vjs.complaints", Context.MODE_PRIVATE);
+//                SharedPreferences.Editor editor = preferences.edit();
+//                editor.clear();
+//                editor.apply();
+//                //finish();
+//            }
+//        });
 
         load = findViewById(R.id.load);
         load.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +42,16 @@ public class StudentPage extends AppCompatActivity {
                 StudentPage.this.startActivity(myIntent);
             }
         });
+
+        tab = findViewById(R.id.tab);
+        tab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(StudentPage.this, StudentsPage.class);
+                StudentPage.this.startActivity(myIntent);
+            }
+        });
+
     }
 
     @Override
