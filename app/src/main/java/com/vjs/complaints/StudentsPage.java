@@ -2,6 +2,7 @@ package com.vjs.complaints;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -13,6 +14,9 @@ import com.google.android.material.tabs.TabLayout;
 import com.vjs.complaints.ui.main.SectionsPagerAdapter;
 
 public class StudentsPage extends AppCompatActivity {
+
+    private boolean backPressToExit = false;
+    String exit_msg = "Press back again to exit";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +34,26 @@ public class StudentsPage extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
                 Intent myIntent = new Intent(StudentsPage.this, NewComplain.class);
                 StudentsPage.this.startActivity(myIntent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (backPressToExit) {
+            super.onBackPressed();
+            return;
+        }
+        this.backPressToExit = true;
+        Snackbar.make(findViewById(R.id.student_l), exit_msg, Snackbar.LENGTH_LONG).show();
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                backPressToExit = false;
+            }
+        }, 2000);
     }
 }

@@ -25,7 +25,7 @@
             android:layout_height="40dp"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:text="Name" />
+            android:text="@string/name" />
 
         <TextView
             android:id="@+id/dyear"
@@ -33,7 +33,7 @@
             android:layout_height="40dp"
             android:gravity="center"
             android:layout_margin="10dp"
-            android:text="Year" />
+            android:text="@string/year" />
 
         <TextView
             android:id="@+id/dbranch"
@@ -41,7 +41,7 @@
             android:layout_height="40dp"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:text="Branch" />
+            android:text="@string/branch" />
 
         <TextView
             android:id="@+id/dhostel"
@@ -49,7 +49,7 @@
             android:layout_height="40dp"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:text="Hostel" />
+            android:text="@string/hostel" />
 
         <TextView
             android:id="@+id/type"
@@ -57,7 +57,7 @@
             android:layout_height="40dp"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:text="Complain Type" />
+            android:text="@string/complain_type" />
 
         <TextView
             android:id="@+id/result"
@@ -72,7 +72,7 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:text="Complain" />
+            android:text="@string/complain" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

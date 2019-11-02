@@ -11,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import java.util.Objects;
 
 public class LoadComplains extends Fragment {
@@ -25,7 +24,7 @@ public class LoadComplains extends Fragment {
         View rootView = inflater.inflate(R.layout.activity_loadcomplaint, container ,false);
 
         TextView dname = rootView.findViewById(R.id.dname);
-        TextView dbranch = rootView.findViewById(R.id.dcomplain);
+        TextView dbranch = rootView.findViewById(R.id.dbranch);
         TextView dhostel = rootView.findViewById(R.id.dhostel);
         TextView dcomplain = rootView.findViewById(R.id.dcomplain);
         TextView dtype = rootView.findViewById(R.id.type);
@@ -35,8 +34,6 @@ public class LoadComplains extends Fragment {
         account acc = new account(getActivity());
 
         SharedPreferences sharedPreferences = Objects.requireNonNull(this.getActivity()).getSharedPreferences("com.vjs.complaints", Context.MODE_PRIVATE);
-                //getSharedPreferences("com.vjs.complaints", Context.MODE_PRIVATE);
-
 //        Toast.makeText(getActivity(), dbHandler.loadHandler(), Toast.LENGTH_LONG).show();
 //        result.setText(dbHandler.loadHandler());
 

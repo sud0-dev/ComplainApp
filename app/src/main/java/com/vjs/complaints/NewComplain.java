@@ -1,9 +1,5 @@
 package com.vjs.complaints;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,33 +9,75 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import com.jaredrummler.materialspinner.MaterialSpinner;
 
 
 @SuppressLint("Registered")
-public class NewComplain extends AppCompatActivity implements Dialog.DialogListener {
+public class NewComplain extends AppCompatActivity implements Dialog.DialogListener, DefaultComplains.Pass {
 
     EditText name;
     Button submit, describe;
-    Spinner branch, year, hostel, complainType;
+    Spinner year, hostel, complainType;
     account acc = new account(this);
-    MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
+    String[] string = {"","","","",""};
+    //MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
 
+        MaterialSpinner spinner = (MaterialSpinner) findViewById(R.id.branch);
+        spinner.setItems(getResources().getStringArray(R.array.branch_name));
+        spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
+            @Override public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
+                string[0]= item;
+            }
+        });
+
+        MaterialSpinner spinner1 = (MaterialSpinner)findViewById(R.id.year);
+        spinner1.setItems(getResources().getStringArray(R.array.year));
+        spinner1.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
+            @Override public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
+                string[1] = item;
+            }
+        });
+
+        MaterialSpinner spinner2 = (MaterialSpinner)findViewById(R.id.hostel);
+        spinner2.setItems(getResources().getStringArray(R.array.hostel));
+        spinner2.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
+            @Override public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
+                string[2] = item;
+            }
+        });
+
+        Button complain = findViewById(R.id.complain);
+        complain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DefaultComplains dialogFragment = new DefaultComplains();
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("notAlertDialog", true);
+                dialogFragment.setArguments(bundle);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                Fragment prev = getSupportFragmentManager().findFragmentByTag("dialog");
+                if (prev != null) {
+                    ft.remove(prev);
+                }
+                ft.addToBackStack(null);
+                dialogFragment.show(ft, "dialog");
+            }
+        });
+
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 
         name = findViewById(R.id.name);
-        branch = findViewById(R.id.branch);
-        year = findViewById(R.id.year);
-        hostel = findViewById(R.id.hostel);
-        complainType = findViewById(R.id.complainttype);
 
         describe = findViewById(R.id.describe);
         describe.setOnClickListener(new View.OnClickListener() {
-            //@Override
             public void onClick(View v) {
                 Dialog dialogFragment = new Dialog();
                 Bundle bundle = new Bundle();
@@ -59,10 +97,9 @@ public class NewComplain extends AppCompatActivity implements Dialog.DialogListe
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 acc.name = name.getText().toString();
-                acc.branch = branch.getSelectedItem().toString();
-                acc.hostel = hostel.getSelectedItem().toString();
-                acc.type = complainType.getSelectedItem().toString();
-                acc.year = year.getSelectedItem().toString();
+                acc.branch = string[0];
+                acc.year = string[1];
+                acc.hostel = string[2];
                 acc.write();
                 //dbHandler.addHandler(acc);
                 finish();
@@ -80,5 +117,17 @@ public class NewComplain extends AppCompatActivity implements Dialog.DialogListe
             acc.complain = "No Complains";
         } else
             acc.complain = inputText;
+    }
+
+    @Override
+    public void onDone(String type, String complain) {
+        if (TextUtils.isEmpty(type) && TextUtils.isEmpty(complain)){
+            acc.type = "Type";
+            acc.complain = "Complain";
+        }
+        else{
+            acc.type = type;
+            acc.complain = complain;
+        }
     }
 }

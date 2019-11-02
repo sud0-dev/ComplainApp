@@ -21,23 +21,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/describe"
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/complainType"
             android:layout_width="250dp"
-            android:layout_height="150dp"
+            android:layout_height="45dp"
             android:layout_margin="10dp"
-            android:background="@drawable/borders"
-            android:gravity="center"
-            android:hint="@string/enter_here"
-            android:inputType="textMultiLine"
-            android:autofillHints="" />
+            android:textAlignment="center"
+            app:ms_hint="@string/complaints" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDone"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:textColor="@color/black"
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/defaultComplains"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            app:ms_hint="@string/defaultComplaints" />
+
+        <Button
+            android:id="@+id/btnDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="@string/done" />
 

@@ -11,14 +11,12 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
@@ -80,23 +78,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button student = findViewById(R.id.student);
-        student.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(MainActivity.this, StudentsPage.class);
-                MainActivity.this.startActivity(myIntent);
-            }
-        });
-
-        Button admin = findViewById(R.id.admin);
-        admin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(MainActivity.this, AdminPage.class);
-                MainActivity.this.startActivity(myIntent);
-            }
-        });
+//        Button student = findViewById(R.id.student);
+//        student.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent myIntent = new Intent(MainActivity.this, StudentsPage.class);
+//                MainActivity.this.startActivity(myIntent);
+//                finish();
+//            }
+//        });
+//
+//        Button admin = findViewById(R.id.admin);
+//        admin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent myIntent = new Intent(MainActivity.this, AdminPage.class);
+//                MainActivity.this.startActivity(myIntent);
+//                finish();
+//            }
+//        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -185,5 +185,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 2000);
     }
-
 }

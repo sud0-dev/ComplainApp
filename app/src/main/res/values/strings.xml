@@ -12,13 +12,6 @@
     <string name="Symbiosis">Symbiosis</string>
     <string name="complain">Complain</string>
 
-    <string-array name="year">
-        <item>I</item>
-        <item>II</item>
-        <item>III</item>
-        <item>IV</item>
-    </string-array>
-
     <string-array name="branch_name">
         <item>IT</item>
         <item>CSE</item>
@@ -26,6 +19,13 @@
         <item>Electrical</item>
         <item>Electronics</item>
         <item>Civil</item>
+    </string-array>
+
+    <string-array name="year">
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>IV</item>
     </string-array>
 
     <string-array name="hostel">
@@ -39,18 +39,64 @@
         <item>Water</item>
         <item>Room</item>
         <item>Food</item>
-        <item>Cleaning</item>
         <item>Electrical</item>
     </string-array>
 
+    <string-array name="water">
+        <item>Drains clogging</item>
+        <item>No water</item>
+        <item>Taps Broken</item>
+        <item>Water Leakage</item>
+        <item>Dirty drinking water</item>
+        <item>No hot water</item>
+    </string-array>
+
+    <string-array name="room">
+        <item>Room uncleaned</item>
+        <item>Damaged Parts</item>
+        <item>Paints coming off</item>
+        <item>Broken Walls/Ceiling</item>
+        <item>Mice in room</item>
+        <item>Mosquito/Insect problems</item>
+        <item>Broken Door</item>
+        <item>Broken Window</item>
+    </string-array>
+
+    <string-array name="food">
+        <item>Unhygienic food</item>
+        <item>Bad Taste</item>
+        <item>Less Quantity</item>
+        <item>Old Foods being supplied</item>
+        <item>Insects in food</item>
+        <item>Quality compromised</item>
+    </string-array>
+
+    <string-array name="Electricity">
+        <item>Tube Fused</item>
+        <item>Bulb fused</item>
+        <item>Fans slow/not working</item>
+        <item>Damaged socket</item>
+        <item>Bad earthing</item>
+        <item>Short Circuit</item>
+        <item>Blown Fuse</item>
+        <item>No supply</item>
+    </string-array>
+
+
     <string name="title_activity_students_page">StudentsPage</string>
-    <string name="tab_text_1">NEW</string>
-    <string name="tab_text_2">LOAD</string>
+    <string name="tab_text_2">PREVIOUS</string>
     <string name="tab_text_3">STATUS</string>
     <string name="not_found_your_problem">Not Found your problem ?</string>
     <string name="submit">Submit</string>
     <string name="login">Login</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="logo">Logo</string>
+    <string name="please_describe_your_problem">Please describe your problem</string>
+    <string name="enter_here">Enter here</string>
+    <string name="done">Done</string>
+    <string name="defaultComplaints">Default Complains</string>
+    <string name="branch">Branch</string>
+    <string name="complain_type">Complain Type</string>
 
 </resources>

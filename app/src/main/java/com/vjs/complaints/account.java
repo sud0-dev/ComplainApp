@@ -5,16 +5,16 @@ import android.content.SharedPreferences;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class account {
+class account {
 
     String name, type, branch, year, hostel, complain;
     private Context mContext;
 
-    public account(Context context) {
+    account(Context context) {
         this.mContext = context;
     }
 
-    public void write() {
+    void write() {
 
         String sharedPrefFile = "com.vjs.complaints";
         SharedPreferences mPreferences;

@@ -9,13 +9,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import com.vjs.complaints.ComplainStatus;
 import com.vjs.complaints.LoadComplains;
-import com.vjs.complaints.NewComplains;
 import com.vjs.complaints.R;
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2, R.string.tab_text_3};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_2, R.string.tab_text_3};
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
@@ -26,10 +25,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new NewComplains();
-            case 1:
                 return new LoadComplains();
-            case 2:
+            case 1:
                 return new ComplainStatus();
             default:
                 return null;
@@ -41,10 +38,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "NEW";
-            case 1:
                 return "LOAD";
-            case 2:
+            case 1:
                 return "STATUS";
             default:
                 return  null;
@@ -53,6 +48,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 }
