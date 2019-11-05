@@ -9,36 +9,30 @@ import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+
 import com.google.android.material.snackbar.Snackbar;
 
-public class MainActivity extends AppCompatActivity {
+public class login extends AppCompatActivity {
 
-    Button login, theme;
+    ImageView login;
     EditText username, password;
-    TextView text, Link;
+    TextView text, Link, signUp;
     String user, pass;
     private boolean backPressToExit = false;
     String exit_msg = "Press back again to exit";
     int Permission_All = 1;
-    int CHECK_NIGHT_MODE = 1;
+    //int CHECK_NIGHT_MODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
-            setTheme(R.style.DarkMode);
-        else
-            setTheme(R.style.AppTheme);
+        setContentView(R.layout.activity_login);
 
         String[] Permissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.INTERNET, };
 
@@ -48,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
         login = findViewById(R.id.login);
         login.setEnabled(false);
-        login.setBackgroundTintList((ContextCompat.getColorStateList(MainActivity.this, R.color.disabled)));
+        login.setImageResource(R.drawable.ldisabled);
+        //login.setBackgroundTintList((ContextCompat.getColorStateList(com.vjs.complaints.login.this, R.color.disabled)));
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
@@ -59,12 +54,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 login.setEnabled(false);
-                login.setBackgroundTintList((ContextCompat.getColorStateList(MainActivity.this, R.color.disabled)));
+                login.setImageResource(R.drawable.ldisabled);
+                //login.setBackgroundTintList((ContextCompat.getColorStateList(com.vjs.complaints.login.this, R.color.disabled)));
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                login.setBackgroundTintList((ContextCompat.getColorStateList(MainActivity.this, R.color.button)));
+                login.setImageResource(R.drawable.login);
+                //login.setBackgroundTintList((ContextCompat.getColorStateList(com.vjs.complaints.login.this, R.color.button)));
             }
 
             @Override
@@ -73,8 +70,18 @@ public class MainActivity extends AppCompatActivity {
                     login.setEnabled(true);
                 else {
                     login.setEnabled(false);
-                    login.setBackgroundTintList((ContextCompat.getColorStateList(MainActivity.this, R.color.disabled)));
+                    login.setImageResource(R.drawable.ldisabled);
+                    //login.setBackgroundTintList((ContextCompat.getColorStateList(com.vjs.complaints.login.this, R.color.disabled)));
                 }
+            }
+        });
+
+        signUp = findViewById(R.id.signUp);
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(com.vjs.complaints.login.this, signup.class);
+                com.vjs.complaints.login.this.startActivity(intent);
             }
         });
 
@@ -82,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
 //        student.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent myIntent = new Intent(MainActivity.this, StudentsPage.class);
-//                MainActivity.this.startActivity(myIntent);
+//                Intent myIntent = new Intent(com.vjs.complaints.login.this, StudentsPage.class);
+//                com.vjs.complaints.login.this.startActivity(myIntent);
 //                finish();
 //            }
 //        });
@@ -92,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
 //        admin.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent myIntent = new Intent(MainActivity.this, AdminPage.class);
-//                MainActivity.this.startActivity(myIntent);
+//                Intent myIntent = new Intent(com.vjs.complaints.login.this, AdminPage.class);
+//                com.vjs.complaints.login.this.startActivity(myIntent);
 //                finish();
 //            }
 //        });
@@ -106,12 +113,12 @@ public class MainActivity extends AppCompatActivity {
                 pass = password.getText().toString();
 
                 if (user.equals("admin") && pass.equals("admin")) {
-                    Intent myIntent = new Intent(MainActivity.this, AdminPage.class);
-                    MainActivity.this.startActivity(myIntent);
+                    Intent myIntent = new Intent(com.vjs.complaints.login.this, AdminPage.class);
+                    com.vjs.complaints.login.this.startActivity(myIntent);
                     finish();
                 } else if (user.equals("student") && pass.equals("student")) {
-                    Intent myIntent = new Intent(MainActivity.this, StudentsPage.class);
-                    MainActivity.this.startActivity(myIntent);
+                    Intent myIntent = new Intent(com.vjs.complaints.login.this, StudentsPage.class);
+                    com.vjs.complaints.login.this.startActivity(myIntent);
                     finish();
                 } else {
                     ErrorDialog dialogFragment = new ErrorDialog();
@@ -123,33 +130,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Link = findViewById(R.id.site);
-        Link.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(MainActivity.this, webpage.class);
-                MainActivity.this.startActivity(myIntent);
-            }
-        });
-
-        theme = findViewById(R.id.theme);
-        theme.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(CHECK_NIGHT_MODE == 1) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    CHECK_NIGHT_MODE = 0;
-                    theme.setText("Light mode");
-                    restartApp();
-                }
-                else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    CHECK_NIGHT_MODE = 1;
-                    theme.setText("Dark mode");
-                    restartApp();
-                }
-            }
-        });
+//        Link = findViewById(R.id.site);
+//        Link.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent myIntent = new Intent(com.vjs.complaints.login.this, webpage.class);
+//                com.vjs.complaints.login.this.startActivity(myIntent);
+//            }
+//        });
     }
 
     public boolean hasPermissions(Context context, String... permissions){
@@ -164,10 +152,10 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void restartApp () {
-        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-        MainActivity.this.startActivity(myIntent);
-    }
+//    public void restartApp () {
+//        Intent myIntent = new Intent(getApplicationContext(), com.vjs.complaints.login.class);
+//        com.vjs.complaints.login.this.startActivity(myIntent);
+//    }
 
     @Override
     public void onBackPressed() {

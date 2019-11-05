@@ -98,5 +98,9 @@
     <string name="defaultComplaints">Default Complains</string>
     <string name="branch">Branch</string>
     <string name="complain_type">Complain Type</string>
+    <string name="don_t_have_an_account">Don’t have an account ?</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_have_an_account">Already have an account ?</string>
 
 </resources>

@@ -27,7 +27,7 @@ public class SplashScreen extends AppCompatActivity {
                 @Override
                 public void run() {
                     animationView.cancelAnimation();
-                    Intent myIntent = new Intent(SplashScreen.this, MainActivity.class);
+                    Intent myIntent = new Intent(SplashScreen.this, welcome.class);
                     SplashScreen.this.startActivity(myIntent);
                     finish();
                 }

@@ -7,9 +7,10 @@
     <color name="grey">#C6DAD9D9</color>
     <color name="black">#000000</color>
     <color name="dark">#1C1C1C</color>
-    <color name="red">#FFFF0000</color>
+    <color name="red">#F23B5F</color>
     <color name="button">#01579B</color>
     <color name="disabled">#C3857F7F</color>
     <color name="splash_screen">#1C1B1B</color>
     <color name="link">#0020D6</color>
+    <color name="none">#00000000</color>
 </resources>
