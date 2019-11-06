@@ -91,6 +91,7 @@ public class StudentsPage extends AppCompatActivity implements NavigationView.On
                 editor.apply();
                 Intent intent = new Intent(StudentsPage.this, com.vjs.complaints.login.class);
                 StudentsPage.this.startActivity(intent);
+                finish();
         }
         drawer.closeDrawer(GravityCompat.START);
         return false;

@@ -131,10 +131,10 @@ public class login extends AppCompatActivity {
                         preferencesEditor.putString("user", username.getText().toString());
                         preferencesEditor.putString("pass", password.getText().toString());
                         preferencesEditor.apply();
-                        Intent myIntent = new Intent(com.vjs.complaints.login.this, StudentsPage.class);
-                        com.vjs.complaints.login.this.startActivity(myIntent);
-                        finish();
                     }
+                    Intent myIntent = new Intent(com.vjs.complaints.login.this, StudentsPage.class);
+                    com.vjs.complaints.login.this.startActivity(myIntent);
+                    finish();
                 } else {
                     ErrorDialog dialogFragment = new ErrorDialog();
                     Bundle bundle = new Bundle();
