@@ -1,4 +1,4 @@
-package com.vjs.complaints.ui.main;
+package com.vjs.complaints.students.main;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
@@ -7,8 +7,8 @@ import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import com.vjs.complaints.ComplainStatus;
-import com.vjs.complaints.LoadComplains;
+import com.vjs.complaints.students.ComplainStatus;
+import com.vjs.complaints.students.LoadComplains;
 import com.vjs.complaints.R;
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {

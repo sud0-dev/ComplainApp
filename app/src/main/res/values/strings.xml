@@ -102,5 +102,7 @@
     <string name="remember_me">Remember Me</string>
     <string name="sign_up">Sign Up</string>
     <string name="already_have_an_account">Already have an account ?</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
 </resources>

@@ -1,17 +1,17 @@
-package com.vjs.complaints;
+package com.vjs.complaints.students;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
+
 import com.jaredrummler.materialspinner.MaterialSpinner;
+import com.vjs.complaints.R;
+
 import java.util.Objects;
 
 public class DefaultComplains extends DialogFragment {

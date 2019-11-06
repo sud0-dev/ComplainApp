@@ -1,4 +1,4 @@
-package com.vjs.complaints;
+package com.vjs.complaints.students;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,6 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.vjs.complaints.R;
+
 import java.util.Objects;
 
 public class LoadComplains extends Fragment {

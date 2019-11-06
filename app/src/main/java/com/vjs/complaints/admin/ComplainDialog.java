@@ -1,4 +1,4 @@
-package com.vjs.complaints;
+package com.vjs.complaints.admin;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+
+import com.vjs.complaints.R;
+
 import java.util.Objects;
 
 public class ComplainDialog extends AppCompatDialogFragment {

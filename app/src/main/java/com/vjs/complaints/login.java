@@ -1,8 +1,10 @@
 package com.vjs.complaints;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,6 +13,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,12 +21,16 @@ import androidx.core.app.ActivityCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import com.vjs.complaints.admin.AdminPage;
+import com.vjs.complaints.students.StudentsPage;
+
 public class login extends AppCompatActivity {
 
     ImageView login;
     EditText username, password;
     TextView text, Link, signUp;
     String user, pass;
+    RadioButton remember;
     private boolean backPressToExit = false;
     String exit_msg = "Press back again to exit";
     int Permission_All = 1;
@@ -85,6 +92,7 @@ public class login extends AppCompatActivity {
             }
         });
 
+        remember = findViewById(R.id.radioButton);
 //        Button student = findViewById(R.id.student);
 //        student.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -117,9 +125,18 @@ public class login extends AppCompatActivity {
                     com.vjs.complaints.login.this.startActivity(myIntent);
                     finish();
                 } else if (user.equals("student") && pass.equals("student")) {
-                    Intent myIntent = new Intent(com.vjs.complaints.login.this, StudentsPage.class);
-                    com.vjs.complaints.login.this.startActivity(myIntent);
-                    finish();
+                    if(remember.isChecked()){
+                        String sharedPrefFile = "user.details";
+                        SharedPreferences mPreferences;
+                        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+                        @SuppressLint("CommitPrefEdits") SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+                        preferencesEditor.putString("user", username.getText().toString());
+                        preferencesEditor.putString("pass", password.getText().toString());
+                        preferencesEditor.apply();
+                        Intent myIntent = new Intent(com.vjs.complaints.login.this, StudentsPage.class);
+                        com.vjs.complaints.login.this.startActivity(myIntent);
+                        finish();
+                    }
                 } else {
                     ErrorDialog dialogFragment = new ErrorDialog();
                     Bundle bundle = new Bundle();

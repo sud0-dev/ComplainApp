@@ -5,9 +5,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+
+import com.vjs.complaints.students.account;
 
 public class MyDBHandler extends SQLiteOpenHelper {
         //information of database

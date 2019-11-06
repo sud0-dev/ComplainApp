@@ -20,10 +20,10 @@
         <activity android:name=".signup" />
         <activity android:name=".welcome" />
         <activity
-            android:name=".StudentsPage"
+            android:name="com.vjs.complaints.students.StudentsPage"
             android:label="@string/title_activity_students_page" />
         <activity android:name=".ErrorDialog" />
-        <activity android:name=".NewComplain" />
+        <activity android:name="com.vjs.complaints.students.NewComplain" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,8 +31,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ComplainDialog" />
-        <activity android:name=".AdminPage" />
+        <activity android:name=".admin.ComplainDialog" />
+        <activity android:name=".admin.AdminPage" />
         <activity android:name=".webpage" />
         <activity android:name=".login" />
     </application>

@@ -1,20 +1,20 @@
-package com.vjs.complaints;
+package com.vjs.complaints.students;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
 import static android.content.Context.MODE_PRIVATE;
 
-class account {
+public class account {
 
-    String name, type, branch, year, hostel, complain;
-    private Context mContext;
+    public String name, type, branch, year, hostel, complain;
+    public Context mContext;
 
-    account(Context context) {
+    public account(Context context) {
         this.mContext = context;
     }
 
-    void write() {
+    public void write() {
 
         String sharedPrefFile = "com.vjs.complaints";
         SharedPreferences mPreferences;

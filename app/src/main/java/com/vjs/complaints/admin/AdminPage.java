@@ -1,4 +1,4 @@
-package com.vjs.complaints;
+package com.vjs.complaints.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.vjs.complaints.R;
+import com.vjs.complaints.students.account;
 
 public class AdminPage extends AppCompatActivity {
 
