@@ -82,7 +82,6 @@
         <item>No supply</item>
     </string-array>
 
-
     <string name="title_activity_students_page">StudentsPage</string>
     <string name="tab_text_2">PREVIOUS</string>
     <string name="tab_text_3">STATUS</string>
@@ -104,5 +103,9 @@
     <string name="already_have_an_account">Already have an account ?</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="name_hint">Name</string>
+    <string name="sample_text">Sample Text</string>
+    <string name="enable_mint_theme">Enable Mint Theme</string>
 
 </resources>

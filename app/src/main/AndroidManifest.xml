@@ -17,13 +17,14 @@
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Settings" />
         <activity android:name=".signup" />
         <activity android:name=".welcome" />
         <activity
-            android:name="com.vjs.complaints.students.StudentsPage"
+            android:name=".students.StudentsPage"
             android:label="@string/title_activity_students_page" />
         <activity android:name=".ErrorDialog" />
-        <activity android:name="com.vjs.complaints.students.NewComplain" />
+        <activity android:name=".students.NewComplain" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

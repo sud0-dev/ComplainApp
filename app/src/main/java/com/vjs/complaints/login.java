@@ -22,7 +22,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.vjs.complaints.admin.AdminPage;
 import com.vjs.complaints.students.StudentsPage;
 
-public class login extends AppCompatActivity {
+public class login extends BaseActivity {
 
     ImageView login;
     EditText username, password;
@@ -35,7 +35,7 @@ public class login extends AppCompatActivity {
     //int CHECK_NIGHT_MODE = 1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -48,7 +48,6 @@ public class login extends AppCompatActivity {
         login = findViewById(R.id.login);
         login.setEnabled(false);
         login.setImageResource(R.drawable.ldisabled);
-        //login.setBackgroundTintList((ContextCompat.getColorStateList(com.vjs.complaints.login.this, R.color.disabled)));
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
@@ -60,13 +59,11 @@ public class login extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 login.setEnabled(false);
                 login.setImageResource(R.drawable.ldisabled);
-                //login.setBackgroundTintList((ContextCompat.getColorStateList(com.vjs.complaints.login.this, R.color.disabled)));
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 login.setImageResource(R.drawable.login);
-                //login.setBackgroundTintList((ContextCompat.getColorStateList(com.vjs.complaints.login.this, R.color.button)));
             }
 
             @Override
@@ -76,7 +73,6 @@ public class login extends AppCompatActivity {
                 else {
                     login.setEnabled(false);
                     login.setImageResource(R.drawable.ldisabled);
-                    //login.setBackgroundTintList((ContextCompat.getColorStateList(com.vjs.complaints.login.this, R.color.disabled)));
                 }
             }
         });

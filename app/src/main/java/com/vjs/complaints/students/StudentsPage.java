@@ -5,33 +5,36 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
-
+import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
+import com.vjs.complaints.BaseActivity;
 import com.vjs.complaints.R;
+import com.vjs.complaints.Settings;
 import com.vjs.complaints.students.main.SectionsPagerAdapter;
 
-public class StudentsPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class StudentsPage extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
     private boolean backPressToExit = false;
+    CompoundButton compoundButton;
+    SharedPreferences sharedPref;
     String exit_msg = "Press back again to exit";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_students_page);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
@@ -39,8 +42,6 @@ public class StudentsPage extends AppCompatActivity implements NavigationView.On
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -60,6 +61,9 @@ public class StudentsPage extends AppCompatActivity implements NavigationView.On
                 StudentsPage.this.startActivity(myIntent);
             }
         });
+
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String currentTheme = sharedPref.getString("theme", "lilac");
     }
 
     @Override
@@ -85,13 +89,30 @@ public class StudentsPage extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.logout:
-                SharedPreferences preferences =getSharedPreferences("user.details", Context.MODE_PRIVATE);
+                SharedPreferences preferences = getSharedPreferences("user.details", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.clear();
                 editor.apply();
                 Intent intent = new Intent(StudentsPage.this, com.vjs.complaints.login.class);
                 StudentsPage.this.startActivity(intent);
                 finish();
+
+            case R.id.settings:
+                Intent intent1 = new Intent(StudentsPage.this, Settings.class);
+                StudentsPage.this.startActivity(intent1);
+
+            case R.id.nav_item1:
+                compoundButton = findViewById(R.id.drawer_switch);
+                compoundButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if(compoundButton.isChecked()){
+                            sharedPref.edit().putString("theme", "mint").apply();
+                        }
+                        else
+                            sharedPref.edit().putString("theme", "lilac").apply();
+                        recreate();
+                    }
+                });
         }
         drawer.closeDrawer(GravityCompat.START);
         return false;

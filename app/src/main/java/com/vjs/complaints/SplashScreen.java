@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.lottie.LottieAnimationView;
-
 import com.vjs.complaints.admin.AdminPage;
 import com.vjs.complaints.students.StudentsPage;
 
