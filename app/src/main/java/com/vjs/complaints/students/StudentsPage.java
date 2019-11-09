@@ -91,11 +91,13 @@ public class StudentsPage extends BaseActivity implements NavigationView.OnNavig
                 Intent intent = new Intent(StudentsPage.this, com.vjs.complaints.login.class);
                 StudentsPage.this.startActivity(intent);
                 finish();
+                break;
 
             case R.id.settings:
                 Intent intent1 = new Intent(StudentsPage.this, Settings.class);
                 StudentsPage.this.startActivity(intent1);
                 finish();
+                break;
 
             case R.id.nav_item1:
                 compoundButton = findViewById(R.id.drawer_switch);
