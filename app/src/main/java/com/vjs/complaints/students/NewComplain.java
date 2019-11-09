@@ -9,15 +9,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import com.jaredrummler.materialspinner.MaterialSpinner;
+import com.vjs.complaints.BaseActivity;
 import com.vjs.complaints.R;
 
 
 @SuppressLint("Registered")
-public class NewComplain extends AppCompatActivity implements Dialog.DialogListener, DefaultComplains.Pass {
+public class NewComplain extends BaseActivity implements Dialog.DialogListener, DefaultComplains.Pass {
 
     EditText name;
     Button submit, describe;
@@ -27,7 +27,7 @@ public class NewComplain extends AppCompatActivity implements Dialog.DialogListe
     //MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
 

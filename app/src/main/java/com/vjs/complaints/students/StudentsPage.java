@@ -61,9 +61,6 @@ public class StudentsPage extends BaseActivity implements NavigationView.OnNavig
                 StudentsPage.this.startActivity(myIntent);
             }
         });
-
-        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        String currentTheme = sharedPref.getString("theme", "lilac");
     }
 
     @Override
@@ -100,6 +97,7 @@ public class StudentsPage extends BaseActivity implements NavigationView.OnNavig
             case R.id.settings:
                 Intent intent1 = new Intent(StudentsPage.this, Settings.class);
                 StudentsPage.this.startActivity(intent1);
+                finish();
 
             case R.id.nav_item1:
                 compoundButton = findViewById(R.id.drawer_switch);

@@ -18,11 +18,6 @@ public class BaseActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-//        currentTheme = sharedPref.getString("current_theme", "lilac");
-//        assert currentTheme != null;
-//        setAppTheme(currentTheme);
-
         sharedPreferences = getSharedPreferences("theme_pref", Context.MODE_PRIVATE);
         currentTheme = sharedPreferences.getString("current_theme", "light");
         assert currentTheme != null;

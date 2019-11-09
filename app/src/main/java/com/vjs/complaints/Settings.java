@@ -2,9 +2,14 @@ package com.vjs.complaints;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.CompoundButton;
+
+import com.vjs.complaints.students.StudentsPage;
+
+import java.util.Set;
 
 public class Settings extends BaseActivity {
 
@@ -40,4 +45,11 @@ public class Settings extends BaseActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Settings.this, StudentsPage.class);
+        Settings.this.startActivity(intent);
+    }
+
 }
