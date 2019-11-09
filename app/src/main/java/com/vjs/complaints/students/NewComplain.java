@@ -73,8 +73,6 @@ public class NewComplain extends BaseActivity implements Dialog.DialogListener, 
             }
         });
 
-        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
-
         name = findViewById(R.id.name);
 
         describe = findViewById(R.id.describe);

@@ -9,8 +9,9 @@
     <Switch
         android:id="@+id/mintTheme"
         android:layout_width="match_parent"
+        android:layout_margin="15dp"
         android:layout_height="wrap_content"
-        android:text="@string/enable_mint_theme"
+        android:text="@string/enable_dark_theme"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

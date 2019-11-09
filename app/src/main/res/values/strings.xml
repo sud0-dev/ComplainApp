@@ -106,6 +106,6 @@
 
     <string name="name_hint">Name</string>
     <string name="sample_text">Sample Text</string>
-    <string name="enable_mint_theme">Enable Mint Theme</string>
+    <string name="enable_dark_theme">Enable Dark Theme</string>
 
 </resources>

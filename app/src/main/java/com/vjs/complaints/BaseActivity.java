@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 @SuppressLint("Registered")
@@ -16,12 +14,11 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
         sharedPreferences = getSharedPreferences("theme_pref", Context.MODE_PRIVATE);
         currentTheme = sharedPreferences.getString("current_theme", "light");
         assert currentTheme != null;
         setAppTheme(currentTheme);
+        super.onCreate(savedInstanceState);
     }
 
     @Override
